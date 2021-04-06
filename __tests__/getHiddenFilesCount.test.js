@@ -2,7 +2,7 @@ import { mkdir, mkfile } from '@hexlet/immutable-fs-trees';
 import getHiddenFilesCount from '../src/getHiddenFilesCount';
 
 test('getHiddenFilesCount 1', () => {
-  const tree = mkdir('/', [
+  const node = mkdir('/', [
     mkdir('etc', [
       mkdir('apache'),
       mkdir('nginx', [
@@ -18,11 +18,11 @@ test('getHiddenFilesCount 1', () => {
     mkfile('resolve', { size: 1000 }),
   ]);
 
-  expect(getHiddenFilesCount(tree)).toEqual(3);
+  expect(getHiddenFilesCount(node)).toEqual(3);
 });
 
 test('getHiddenFilesCount 2', () => {
-  const tree = mkdir('/', [
+  const node = mkdir('/', [
     mkdir('.etc', [
       mkdir('.apache'),
       mkdir('nginx', [
@@ -37,5 +37,5 @@ test('getHiddenFilesCount 2', () => {
     mkfile('resolve', { size: 1000 }),
   ]);
 
-  expect(getHiddenFilesCount(tree)).toEqual(1);
+  expect(getHiddenFilesCount(node)).toEqual(1);
 });

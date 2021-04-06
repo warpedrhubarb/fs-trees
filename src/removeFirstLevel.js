@@ -1,4 +1,4 @@
-export default (tree) => {
-  const nodes = tree.filter(Array.isArray);
+export default (node) => {
+  const nodes = node.filter(Array.isArray);
   return nodes.flat();
 };

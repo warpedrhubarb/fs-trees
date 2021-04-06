@@ -4,7 +4,7 @@ import downcaseFileNames from '../src/downcaseFileNames';
 
 describe('should', () => {
   test('be immutable', () => {
-    const tree = mkdir('/', [
+    const node = mkdir('/', [
       mkdir('eTc', [
         mkdir('NgiNx'),
         mkdir('CONSUL', [
@@ -13,15 +13,15 @@ describe('should', () => {
       ]),
       mkfile('hOsts'),
     ]);
-    const original = _.cloneDeep(tree);
+    const original = _.cloneDeep(node);
 
-    downcaseFileNames(tree);
+    downcaseFileNames(node);
 
-    expect(tree).toEqual(original);
+    expect(node).toEqual(original);
   });
 
   test('downcase file names', () => {
-    const tree = mkdir('/', [
+    const node = mkdir('/', [
       mkdir('eTc', [
         mkdir('NgiNx'),
         mkdir('CONSUL', [
@@ -30,7 +30,7 @@ describe('should', () => {
       ]),
       mkfile('hOsts'),
     ]);
-    const actual = downcaseFileNames(tree);
+    const actual = downcaseFileNames(node);
 
     const expected = {
       children: [
@@ -55,7 +55,7 @@ describe('should', () => {
   });
 
   test('return full copy', () => {
-    const tree = mkdir('/', [
+    const node = mkdir('/', [
       mkdir('eTc', [
         mkdir('NgiNx', [], { size: 4000 }),
         mkdir('CONSUL', [
@@ -64,7 +64,7 @@ describe('should', () => {
       ]),
       mkfile('hOsts'),
     ]);
-    const actual = downcaseFileNames(tree);
+    const actual = downcaseFileNames(node);
 
     const expected = {
       children: [

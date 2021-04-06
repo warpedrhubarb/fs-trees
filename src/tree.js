@@ -3,8 +3,8 @@ import {
   mkdir, mkfile, isFile, getChildren, getName, getMeta,
 } from '@hexlet/immutable-fs-trees';
 
-export default (tree) => {
-  const children = getChildren(tree);
+export default (node) => {
+  const children = getChildren(node);
   const newChildren = children.map((child) => {
     const name = getName(child);
     if (!isFile(child) || !child.name.endsWith('.jpg')) {
@@ -14,6 +14,6 @@ export default (tree) => {
     meta.size /= 2;
     return mkfile(name, meta);
   });
-  const newMeta = _.cloneDeep(getMeta(tree));
-  return mkdir(getName(tree), newChildren, newMeta);
+  const newMeta = _.cloneDeep(getMeta(node));
+  return mkdir(getName(node), newChildren, newMeta);
 };

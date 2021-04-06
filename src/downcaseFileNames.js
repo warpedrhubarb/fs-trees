@@ -3,9 +3,9 @@ import {
 } from '@hexlet/immutable-fs-trees';
 import _ from 'lodash';
 
-const downcaseFileNames = (tree) => {
-  const newMeta = _.cloneDeep(getMeta(tree));
-  const children = getChildren(tree);
+const downcaseFileNames = (node) => {
+  const newMeta = _.cloneDeep(getMeta(node));
+  const children = getChildren(node);
   const newChildren = children.map((child) => {
     const name = getName(child);
     if (!isFile(child)) {
@@ -14,7 +14,7 @@ const downcaseFileNames = (tree) => {
     const newName = name.toLowerCase();
     return mkfile(newName, getMeta(child));
   });
-  return mkdir(getName(tree), newChildren, newMeta);
+  return mkdir(getName(node), newChildren, newMeta);
 };
 
 export default downcaseFileNames;

@@ -36,7 +36,7 @@ test('generate', () => {
       },
     ],
   });
-  const tree = generate();
+  const node = generate();
 
-  expect(tree).toMatchObject(expectation);
+  expect(node).toMatchObject(expectation);
 });

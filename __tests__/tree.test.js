@@ -4,7 +4,7 @@ import {
 import compressImages from '../src/tree';
 
 test('compressImages 1', () => {
-  const tree = mkdir('my documents', [
+  const node = mkdir('my documents', [
     mkdir('documents.jpg'),
     mkfile('avatar.jpg', { size: 100 }),
     mkfile('passport.jpg', { size: 200 }),
@@ -13,7 +13,7 @@ test('compressImages 1', () => {
     mkdir('presentations'),
   ], { test: 'haha' });
 
-  const newTree = compressImages(tree);
+  const newTree = compressImages(node);
 
   const expectation = [
     {
@@ -53,11 +53,11 @@ test('compressImages 1', () => {
 });
 
 test('compressImages 2', () => {
-  const tree = mkdir('my documents', [
+  const node = mkdir('my documents', [
     mkdir('presentations'),
   ]);
 
-  const newTree = compressImages(tree);
+  const newTree = compressImages(node);
 
   expect(newTree).toMatchObject({
     meta: {},
@@ -68,15 +68,15 @@ test('compressImages 2', () => {
 });
 
 test('compressImages 3 - deepClone', () => {
-  const tree = mkdir('my documents', [
+  const node = mkdir('my documents', [
     mkfile('avatar.jpg', { size: 100, attributes: { hide: false, readOnly: true } }),
     mkdir('presentations'),
   ]);
-  const newTree = compressImages(tree);
+  const newTree = compressImages(node);
   const newFile = getChildren(newTree)[0];
   const newFileMeta = getMeta(newFile);
   newFileMeta.attributes.hide = true;
-  const oldFile = getChildren(tree)[0];
+  const oldFile = getChildren(node)[0];
   const oldFileMeta = getMeta(oldFile);
   expect(oldFileMeta.attributes.hide).toEqual(false);
 });
