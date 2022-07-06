@@ -1,17 +1,6 @@
 {
-  "devDependencies": {
-    "eslint": "^7.23.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-plugin-import": "^2.22.1",
-    "jest": "^26.6.3"
-  },
-  "dependencies": {
-    "@hexlet/immutable-fs-trees": "^0.7.0",
-    "@types/jest": "^26.0.19",
-    "lodash": "^4.17.20"
-  },
-  "name": "fs-trees",
-  "description": "virtual filesystem trees",
+   "name": "fs-trees",
+  "description": "Immutable virtual filesystem",
   "version": "1.0.0",
   "type": "module",
   "scripts": {
@@ -23,12 +12,22 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git+https://github.com/warpedrhubarb/fs-trees.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Maksim S",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/warpedrhubarb/fs-trees/issues"
   },
-  "homepage": ""
+  "homepage": "https://github.com/warpedrhubarb/fs-trees#readme",
+  "devDependencies": {
+    "eslint": "^7.23.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "jest": "^26.6.3"
+  },
+  "dependencies": {
+    "@hexlet/immutable-fs-trees": "^0.7.0",
+    "@types/jest": "^26.0.19",
+    "lodash": "^4.17.20"
+  }
 }
